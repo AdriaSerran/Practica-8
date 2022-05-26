@@ -26,6 +26,7 @@ Entrem al loop i veiem el primer while, aquest, si detecta que el primer Serial 
 enviat pel 2n Serial 
 
 ```c++
+void loop() {
 while (Serial.available()) 
     {
       Serial2.print(char(Serial.read()));
@@ -41,7 +42,8 @@ des del nostre propi teclat.
 while (Serial2.available()) 
     {
       Serial.print(char(Serial2.read()));
-    }  
+    } 
+}
 ```
 
 En resum, el que fa aquest codi és enviar el caràcter que nosaltres hem escrit des del pin 16 al 17, aquest ho llegeix i l'envia un altre cop
