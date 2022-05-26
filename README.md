@@ -16,10 +16,33 @@ Pràctica en la qual només ens fa falta la ESP32.
 
 El funcionament és senzill. Definim els 2 ports, RXD2 al pin 16 i TXD2 al pin 17.
 
+```c++
+#include <Arduino.h>
+#define RXD2 16
+#define TXD2 17
+```
+
 Entrem al loop i veiem el primer while, aquest, si detecta que el primer Serial està lliure, el que fa és print al caràcter 
-enviat pel 2n Serial i el segon while fa exactament el mateix però començant des del 2n Serial, és a dir, llegeix si el Serial2 està lliure
+enviat pel 2n Serial 
+
+```c++
+while (Serial.available()) 
+    {
+      Serial2.print(char(Serial.read()));
+    }
+```
+
+
+i el segon while fa exactament el mateix però començant des del 2n Serial, és a dir, llegeix si el Serial2 està lliure
 i si ho està envia el contingut (el caràcter) cap al Serial1, és per això que nosaltres podem veure per pantalla el que escrivim 
 des del nostre propi teclat.
+
+```c++
+while (Serial2.available()) 
+    {
+      Serial.print(char(Serial2.read()));
+    }  
+```
 
 En resum, el que fa aquest codi és enviar el caràcter que nosaltres hem escrit des del pin 16 al 17, aquest ho llegeix i l'envia un altre cop
 del 17 al 16, fet que fa que puguem veure el que escrivim per la pantalla.
