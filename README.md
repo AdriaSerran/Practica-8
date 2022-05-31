@@ -49,4 +49,8 @@ while (Serial2.available())
 En resum, el que fa aquest codi és enviar el caràcter que nosaltres hem escrit des del pin 16 al 17, aquest ho llegeix i l'envia un altre cop
 del 17 al 16, fet que fa que puguem veure el que escrivim per la pantalla.
 
-El funcionament es pot veure al vídeo adjuntat al repositori.
+
+
+
+https://user-images.githubusercontent.com/101885469/171158118-b706f4a1-5532-48f3-b2e2-377507f23292.mp4
+
